@@ -1,0 +1,69 @@
+#+title:My book list
+ほんの読み方をここに書く．
+ざっと見る
+キーワードにあたりをつける
+* New Programmer's Survival Manual
+** Part I -- Professional Programming
+*** Program for Production
+**** Tip 1. Beat Up Your Code
+チェックの重要性
+**** Tip 2. Insist on Correctness
+正確に
+*** Get Your Tools in Order
+** Part II -- People Skills
+*** Manage Thy Self
+*** Teamwork
+** Part III -- The Corporate World
+*** Inside the Company
+*** Mind Your Business
+** Part IV -- Looking Forward
+* いっきに学び直す日本史
+** 古代・中世・近世【教養編】
+** 近代・現代【実用編】
+* 詳説日本史研究
+* 詳説世界史研究
+* EVOLUTION
+* 弓道読本
+* 弓道教室講話
+* サピエンス全史
+* ストレスフリーの整理術
+* 弓聖 阿波研造
+* 生命とは何か
+* インタースコア
+* 身体の歴史
+* graphic elements
+* カラー & ライト
+* 起源図鑑
+* 人類はどこから来て，どこへ行くのか
+* ルネサンスの教育
+* 世界十五大哲学
+* 論語
+** 
+* 寄生虫なき病
+* 禅と生命科学
+* 東洋的な見方
+* 禅と日本文化
+* 意識と脳
+* 漁師革命
+* NATURAL BORN HERO
+* 人体観の歴史
+* スモールワールド
+* フィレンツェの世紀
+* 内なる創造性を引き出せ
+* オートポイエーシス
+* 人体解剖図
+* 勘の研究
+* 世界のエリートはなぜ「美意識」を鍛えるのか？
+* 無門関
+* スタンフォードの自分を変える教室
+* 剣の精神史
+* 夢判断
+* モーセと一神教
+* 南方マンダラ
+* デザイン思考が世界を変える
+* 孫子
+* 無心ということ
+* 弓と禅
+* ストロガッツ非線形ダイナミクスとカオス
+* MIND HACKS
+* 
