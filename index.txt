@@ -33,6 +33,7 @@
 * 身体の歴史
 * graphic elements
 * カラー & ライト
+* [[/Users/ahayashi/Documents/GitHub/books/land_of_lisp.org][Land of lisp]]
 * 起源図鑑
 * 人類はどこから来て，どこへ行くのか
 * ルネサンスの教育
