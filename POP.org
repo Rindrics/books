@@ -2,6 +2,50 @@
 #+TODO 再読が必要 まぁまぁわかった | 理解できた
 * 第1章 スタイル
 ** 1.1 名前
+*** グローバルにはわかりやすい名前を，ローカルには短い名前を
+慣習に従うと，短くできることがある．
+ループ変数i, j, ポインタのp, qなど．
+*** 統一しよう
+1つの概念には1つの用語を使うべき．
+*** 関数には能動的な名前を
+返り値が明確になるような名前もいい．isoctal()など．
+*** 名前は的確に
+**** 問題1-1
+次のコードの名前と値の選び方についてコメントせよ
+#+BEGIN_SRC C
+  #define TRUE 0
+  #define FALSE 1
+  if ((ch = getchar()) == EOF)
+      not_eof = FALSE;
+#+END_SRC
+TRUEとFALSEの値を逆にし，not_eofをis_eofにしたほうがよい．
+**** 問題1-2
+次の関数を改良せよ
+#+BEGIN_SRC C
+  int smaller (char *s, char *t) {
+      if (strcmp(s, t) < 1)
+          return 1;
+      else
+          return 0;
+  }
+#+END_SRC
+strcmp(a, b)は，aがbより大きければ正の整数値，aがbより小さければ負の整数値，等しければ0を返す．
+関数の名前を正しくするにはsmaller_or_equalとなるが，長いので，biggerとしてはどうか．
+#+BEGIN_SRC C
+  int bigger (char *s, char *t) {
+      if (strcmp(s, t) > 0)
+          return 1;
+      else
+          return 0;
+  }
+#+END_SRC
+**** 問題1-3
+次のコードを音読せよ
+#+BEGIN_SRC C
+  if ((falloc(SMRHSHSCRTCH, S_IFEXT | 0644, MAXRODDHSH)) < 0)
+      ...
+#+END_SRC
+むりむり．
 ** 1.2 式と文
 ** 1.3 一貫性と慣用句
 ** 1.4 関数マクロ
