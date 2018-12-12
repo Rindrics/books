@@ -169,3 +169,115 @@ scanf("%d %d", &yr, &profit[yr]);
 * 第7章 性能
 * 第8章 移植性
 * 第9章 記法
+** 一貫性と慣用句
+*** 一貫性
+一貫していれば，準拠するスタイル自体はあまり問題ない（けど，本書のものに従うのが得策）．
+複数のif文とelse文が同時に出てくるときには，ブレースを絶対に省略してはいけない．
+他人の書いたプログラムを修正するときには，そのプログラムのスタイルに従うこと．
+いくら気に入っていても，自分のスタイルを使ったりしないように．
+
+*** 慣用句
+慣習に従えば，慣習に従っていないところが目立ちやすくなる．
+そこがトラブルの兆候を示しているケースはよくある．
+
+例えば，ループの慣用形式は以下．
+for (i = 0; i < n; i++)
+    array[i] = 1.0;
+
+リストをたどるなら
+for (p = list; p != NULL; p = p->next)
+
+do-whileはバグの絶好のすみかになりやすい．
+do-whileでないとならない時以外，絶対に使わないこと．
+
+**** getsは絶対に使ってはならない                          :BeyondMyLevel:
+セキュリティの問題につながる
+
+**** 多分岐の判定にはelse ifを使おう
+*if文がネストされてならんでいるのは，具合の悪いプログラムの兆候！*
+
+**** case文で落下シーケンスを使うのはやめよう．
+各ケースはみなbreakで終わるのが基本．
+落下を使うのが許されるのは，数個のcaseに全く同一のコードが使われる時．
+#+BEGIN_SRC C
+case '0':
+case '1':
+case '2':
+    ...
+    break;
+#+END_SRC
+コメントは一切いらない．
+
+**** 問題1-7
+以下のC/C++のコードをもっと明快に書き直せ．
+***** コード1
+****** Before
+#+BEGIN_SRC C
+  if (istty(stdin)) ;
+  else if (istty(stdout)) ;
+       else if (istty(stderr)) ;
+            else return(0);      
+#+END_SRC
+
+****** After
+#+BEGIN_SRC C
+  if (istty(stdin)) {
+
+  } else if (istty(stdout)) {
+
+  } else if (istty(stderr)) {
+
+  } else {
+      return(0);
+  }
+#+END_SRC
+***** コード2
+****** Before
+#+BEGIN_SRC C
+  if (retval != SUCCESS)
+  {
+      return (retval);
+  }
+  /* All went well! */
+  return SUCCESS;
+#+END_SRC
+****** After
+#+BEGIN_SRC C
+  if (retval == SUCCESS) {
+      retval = SUCCESS;
+  }
+  return retval;
+#+END_SRC
+***** コード3
+****** Before
+#+BEGIN_SRC C
+  for (k = 0; k++ < 5; x += dx)
+  scanf("%lf", &dx);
+#+END_SRC
+****** After
+#+BEGIN_SRC C
+  for (k = 0; k < 5; k++) {
+      scanf("%lf", &dx);
+      x += dx;
+  }
+#+END_SRC
+
+**** 問題1-8
+次のJavaコードの間違いを見つけて，慣用句的なループを使って書き直せ．
+***** Before
+#+BEGIN_SRC java
+  int count = 0;
+  while (count < total) {
+      count++;
+      if (this.getName(count) == nametable.userName()) {
+          return (true);
+      }
+  }
+#+END_SRC
+***** After
+#+BEGIN_SRC java
+  int count = 0;
+  while (this.getName(count) != nametable.userName()) {
+      count++;
+  }
+#+END_SRC
