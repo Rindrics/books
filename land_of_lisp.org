@@ -54,6 +54,40 @@ Haskell は Lisp 方言ではないが，パラダイムを共有している
 - CLISP は Common Lisp の実装の一つ．初心者におすすめ
 - CLISP の REPL に直接 Lisp コマンドをタイプできる
 ** はじめてのLisp プログラム
+*** 数当てゲーム
+*** Lisp でグローバル変数を定義する
+早速 defparameter が動かない
+**** defparameter 関数を定義する
+Elisp でグローバル変数を定義する特別な関数はあるだろうか？
+#+BEGIN_SRC elisp
+  (defun defparameter (param value)
+    "Define global variable"
+    (setq param value))
+#+END_SRC
+
+#+RESULTS:
+: defparameter
+***** TODO 文字列を変数として定義する方法を調べる
+***** TODO 耳あて**つきの変数を定義する方法を調べる
+**** 使ってみる
+#+BEGIN_SRC elisp
+;(defparameter foo 2)
+(setq foo 3)
+#+END_SRC
+
+#+RESULTS:
+: 3
+**** defparameter と defvar の違い
+defvar はもとの値を上書きしない．
+elisp でも同様．
+#+BEGIN_SRC elisp
+(setq x 5)
+(defvar x 3)
+#+END_SRC
+
+#+RESULTS:
+: x
+
 ** Lisp の構文の世界を探検する
 * LISP は対称なり
 ** 条件と判断
