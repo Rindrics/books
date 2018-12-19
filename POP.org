@@ -1,5 +1,6 @@
 #+TITLE: The Practice of Programming
 #+TAGS: OK BeyondMyLevel Caution
+#+STARTUP: overview
 * スタイル
 ** 名前
 *** グローバルにはわかりやすい名前を，ローカルには短い名前を
@@ -202,7 +203,7 @@ case '2':
   if (istty(stdin)) ;
   else if (istty(stdout)) ;
        else if (istty(stderr)) ;
-            else return(0);      
+            else return(0);
 #+END_SRC
 
 ****** After
@@ -331,9 +332,128 @@ if (c >= 'A' && c <= 'Z')　のほうがまし．
 #+END_SRC
 多分，#defineではなく，enumを使えということだと思う．
 ** コメント
+*** 削除すべきコメント
+- コードを見ればひと目でわかることをわざわざ書いている
+- コードと矛盾している
+- 見た目に凝りすぎて読み手の注意を削いでしまう
+
+*** どんなときにコメントを書くべきか
+- 関数
+- グローバル変数
+- 定数定義
+- 構造体とクラスのフィールド
+
+そのほか，
+- アルゴリズムが難解
+- データ構造が入り組んでいる
+など，コードが（うまく書いてあるけど）本当の意味で難解なときには，コメントがあると有効．
+こんなときに書いたほうがいい内容は
+- 使われるデータ
+- アルゴリズムの性能
+- 元のアルゴリズムの修正
+- 参考文献
+など．
+
+*** 教訓
+優れたコードは，悪いコードに比べてコメントが少なくて済む．
+**** 悪いコードはコメントをつけるのではなく，コード自体を書き直せ
+- 否定演算はわかりにくい
+- 役に立たない変数名
+
+**** コードと矛盾させるな
+書かれたまんまほったらかしで，コードの内容と矛盾しているコメントが最悪．
+- 誤解のもと
+- デバック作業が長引く
+
+**** コードと一致させるだけでなく，コードに沿わせろ
+「なぜここにそのコードを書く必要があるのか」を書け
+
+**** 問題 1-11
+以下のコメントについてコメントせよ．
+
+***** before
+#+BEGIN_SRC java
+  void dict::insert(string& w)
+  // w が辞書にあれば1を，なければ0を返す
+
+  if (n > MAX || n % 2 > 0 )  // 偶数のテスト
+
+  // メッセージを出力
+  // 1行出力するたびに行カウンタを加算
+
+  void write_message()
+  {
+      // カウンタをインクリメント
+      line_number = line_number + 1;
+      fprintf(fout, "%d %s\n%d %s\n%d %s\n",
+              line_number, HEADER,
+              line_number + 1, BODY,
+              line_number + 2, TRAILER);
+      // 行カウンタをインクリメント
+      line_number = line_number + 2
+  }
+#+END_SRC
+
+- 何をするためのコードなのか，全然わからない
+- インクリメントが + 1だったり+2だったり，本当にこれでいいのかわからない．
+- 「メッセージを出力」はいらない
+
+***** TODO after
+Javaがわからないのでなんとも．
+#+BEGIN_SRC java
+  void dict::insert(string& w)
+  // w が辞書にあれば1を，なければ0を返す
+
+  if (n > MAX || n % 2 > 0 )  // 偶数のテスト
+
+  // メッセージを出力
+  // 1行出力するたびに行カウンタを加算
+
+  void write_message()
+  {
+      // カウンタをインクリメント
+      line_number = line_number + 1;
+      fprintf(fout, "%d %s\n%d %s\n%d %s\n",
+              line_number, HEADER,
+              line_number + 1, BODY,
+              line_number + 2, TRAILER);
+      // 行カウンタをインクリメント
+      line_number = line_number + 2
+  }
+#+END_SRC
 ** なぜ手間をかけるのか
+バグの温床になるから．
+きれいなコードを書く習慣，頭を整理してよいプログラムを書く習慣が身につくから．
 ** 参考文献
+- "The Elements of Style" by Strunk & White <- 英語の上手な書き方！！
+- "プログラム書法" by Brian W. Kernighan <- スタイルの方向性？
+- "Writing Solid Code" by Steve Maguire <- プログラミングの参考になる話
+- "Code Complete" by Steve McConnell
+- "エキスパートCプログラミング: 知られざるCの深層" by Peter van der Linden
+
 * アルゴリズムとデータ構造
+
+** 探索
+
+** ソーティング
+
+** ライブラリ
+
+** Java 版クイックソート
+
+** O 記法
+
+** 配列の伸長
+
+** リスト
+
+** ツリー
+
+** ハッシュテーブル
+
+** まとめ
+
+** 参考文献
 * 設計と実装
 * インターフェイス
 * デバッグ
