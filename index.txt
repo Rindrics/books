@@ -221,3 +221,4 @@ Gitにも同じものは無いだろうか？
 *** 第14章　多言語プログラミング--Polyglot Programming
 *** 第15章　理想のツールを探す--Find the Perfect Tools
 *** 第16章　まとめ
+* [[/Users/ahayashi/Documents/GitHub/study/Unix/Unix_for_OSX.org][入門Unix for OSX]]
