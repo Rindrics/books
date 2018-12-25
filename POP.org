@@ -1,7 +1,7 @@
 #+TITLE: The Practice of Programming
 #+TAGS: OK BeyondMyLevel Caution
 #+STARTUP: overview
-x* スタイル
+* スタイル
 ** 名前
 *** グローバルにはわかりやすい名前を，ローカルには短い名前を
 慣習に従うと，短くできることがある．
@@ -558,7 +558,44 @@ C++ と Java はリストをサポートしているが，C の場合には自�
 左右の子ノードの大小関係を一貫させておけは，
 新しいノードをリンクするのにふさわしい場所を効率的に見つけることができる．
 
+リストと違い，ツリーの場合には，重複テストの実行コストがほとんどないため，基本的に重複は排除した方がいい．
+ただし，アプリケーションの目的によっては重複を許すことになるかもしれない．
+ルートからリーフまでの個々の経路の長さが同じツリーを，「バランス木」という．
+項目の検索は実質バイナリサーチになるので，作業はO(logn)の速さで完了する．
 
+*** lookup 関数を定義する
+#+BEGIN_SRC C
+  /* lookup: ツリーtreepで名前をルックアップ */
+  Nameval *lookup(Nameval *treep, char *name)
+  {
+      int cmp;
+
+      if (treep == NULL)
+          return NULL;
+      cmup = strcmp(name, treep->name);
+      if (cmp == 0)
+          return treep;
+      else if (cmp < 0 )
+          return lookup(treep->left, name);
+      else
+          return lookup(treep->right, name);
+  }
+#+END_SRC
+
+*** nrlookup 関数を定義する
+
+出てきた用語
+- 間順走査
+- 後順走査
+- 前順走査
+
+
+
+*** 問題 2-11
+
+*** 問題 2-12
+
+*** 問題 2-13
 ** ハッシュテーブル
 
 ** まとめ
